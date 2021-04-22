@@ -120,8 +120,8 @@ scheme: Mist
 # Value before `||` delimeter is the target permalink.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
 social:
-  GitHub: https://github.com/chuanshuo843 || github
-  E-Mail: mailto:backtrack843@163.com || envelope
+  GitHub: https://github.com/panda843 || github
+  E-Mail: mailto:panda843@qq.com || envelope
   #Google: https://plus.google.com/chuanshuo843 || google
   #Twitter: https://twitter.com/yourname || twitter
   #FB Page: https://www.facebook.com/yourname || facebook
@@ -400,8 +400,8 @@ gitment:
   lazy: false # Comments lazy loading with a button
   cleanly: true # Hide 'Powered by ...' on footer, and more
   language: # Force language, or auto switch by theme
-  github_user: chuanshuo843 # MUST HAVE, Your Github ID
-  github_repo: chuanshuo843.github.io # MUST HAVE, The repo you use to store Gitment comments
+  github_user: panda843 # MUST HAVE, Your Github ID
+  github_repo: panda843.github.io # MUST HAVE, The repo you use to store Gitment comments
   client_id: 9a59cf665f640634ef90 # MUST HAVE, Github client id for the Gitment
   client_secret: 308af1bc795e3ad541abb1434f8bfd0ce7a42406 # EITHER this or proxy_gateway, Github access secret token for the Gitment
   proxy_gateway: # Address of api proxy, See: https://github.com/aimingoo/intersect
