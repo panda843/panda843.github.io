@@ -125,7 +125,7 @@ fi
 ```
 
 
-![创建交互式shell脚本对话框创建交互式shell脚本对话框](free_form_input_box.jpg)
+![创建交互式shell脚本对话框创建交互式shell脚本对话框](/images/free_form_input_box.jpg)
 
 
 
