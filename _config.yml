@@ -5,7 +5,7 @@
 # Site
 title: 是潘达呀
 subtitle: 记录看到和遇到的问题和解决方式
-description: 苏老堤边玉一林，六桥风月是知音。任他桃李争欢赏，不为繁华易素心。
+description: 苏老堤边玉一林、六桥风月是知音、任他桃李争欢赏、不为繁华易素心。\n ---- 元·冯子振
 author: 是潘达呀
 language: zh-Hans
 timezone: Asia/Shanghai
@@ -81,7 +81,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: hexo-theme-next
+theme: cactus
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
