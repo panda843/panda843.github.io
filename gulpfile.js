@@ -43,9 +43,10 @@ gulp.task('minify-images', function(done) {
     gulp.src('./public/**/*.{png,jpg,gif,jpeg}')
         .pipe(imagemin({
             progressive: true,
-            use: [imageminMozjpeg({quality: 80}), imageminPngquant({ quality: [75,80] })]
+            use: [imageminMozjpeg({quality: 90}), imageminPngquant({ quality: [80,90] })]
         }))
         .pipe(gulp.dest('./public'));
+    done();
 });
 //gulp4
 gulp.task('default', gulp.series('minify-html','minify-css','minify-js','minify-images'));
