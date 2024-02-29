@@ -1,4 +1,302 @@
-<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="HandheldFriendly" content="True"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5"><meta name="referrer" content="no-referrer"><meta name="description" content="Fedora 是一个 Linux 发行版，是一款由全球社区爱好者构建的面向日常应用的快速、稳定、强大的操作系统。它允许任何人自由地使用、修改和重发布，无论现在还是将来。它由一个强大的社群开发，这个社群的成员以自己的不懈努力，提供并维护自由、开放源码的软件和开放的标准。Fedora 项目由 Fedora 基金会管理和控制，得到了 Red Hat 的支持。"><meta property="og:type" content="article"><meta property="og:title" content="Fedora24使用笔记"><meta property="og:url" content="https://panda843.github.io/article/1837062590.html"><meta property="og:site_name" content="是潘达呀"><meta property="og:description" content="Fedora 是一个 Linux 发行版，是一款由全球社区爱好者构建的面向日常应用的快速、稳定、强大的操作系统。它允许任何人自由地使用、修改和重发布，无论现在还是将来。它由一个强大的社群开发，这个社群的成员以自己的不懈努力，提供并维护自由、开放源码的软件和开放的标准。Fedora 项目由 Fedora 基金会管理和控制，得到了 Red Hat 的支持。"><meta property="og:locale"><meta property="og:image" content="https://panda843.github.io/article/1837062590/1837062590/964398adbdfee356cc91245ecc0f2819.jpg"><meta property="og:image" content="https://panda843.github.io/article/1837062590/1837062590/d0986899c76c3e0c9a1db1ec3a409cbc.jpg"><meta property="og:image" content="https://panda843.github.io/article/1837062590/1837062590/e2c9d0c55ef130ec72cdceb41ecbbcbf.jpg"><meta property="article:published_time" content="2017-12-28T09:05:00.000Z"><meta property="article:modified_time" content="2024-02-28T09:27:29.997Z"><meta property="article:author" content="是潘达呀"><meta property="article:tag" content="Linux"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://panda843.github.io/article/1837062590/1837062590/964398adbdfee356cc91245ecc0f2819.jpg"><link rel="shortcut icon" href="/images/favicon.ico"><link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png"><title>Fedora24使用笔记</title><link rel="stylesheet" href="/css/style.css"><link rel="alternate" href="/true" title="是潘达呀" type="application/atom+xml"><meta name="generator" content="Hexo 7.1.1"></head><body class="max-width mx-auto px3 ltr"><div id="header-post"><a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a><a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a><a id="top-icon-tablet" href="#" aria-label="Top" onclick='$("html, body").animate({scrollTop:0},"fast")' style="display:none"><i class="fa-solid fa-chevron-up fa-lg"></i></a><span id="menu"><span id="nav"><ul><li><a href="/">Home</a></li><li><a href="/archives/">Writing</a></li><li><a href="/tags/">Tags</a></li><li><a href="/about/">About</a></li></ul></span><br><span id="actions"><ul><li><a class="icon" aria-label="Previous post" href="/article/4226450635.html"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle()' onmouseout='$("#i-prev").toggle()'></i></a></li><li><a class="icon" aria-label="Next post" href="/article/3194097614.html"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle()' onmouseout='$("#i-next").toggle()'></i></a></li><li><a class="icon" aria-label="Back to top" href="#" onclick='$("html, body").animate({scrollTop:0},"fast")'><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle()' onmouseout='$("#i-top").toggle()'></i></a></li><li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle()' onmouseout='$("#i-share").toggle()' onclick='return $("#share").toggle(),!1'></i></a></li></ul><span id="i-prev" class="info" style="display:none">Previous post</span> <span id="i-next" class="info" style="display:none">Next post</span> <span id="i-top" class="info" style="display:none">Back to top</span> <span id="i-share" class="info" style="display:none">Share post</span></span><br><div id="share" style="display:none"><ul><li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://panda843.github.io/article/1837062590.html"><i class="fab fa-facebook" aria-hidden="true"></i></a></li><li><a class="icon" href="https://twitter.com/share?url=https://panda843.github.io/article/1837062590.html&text=Fedora24使用笔记"><i class="fab fa-twitter" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://panda843.github.io/article/1837062590.html&title=Fedora24使用笔记"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li><li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://panda843.github.io/article/1837062590.html&is_video=false&description=Fedora24使用笔记"><i class="fab fa-pinterest" aria-hidden="true"></i></a></li><li><a class="icon" href="mailto:?subject=Fedora24使用笔记&body=Check out this article: https://panda843.github.io/article/1837062590.html"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a></li><li><a class="icon" href="https://getpocket.com/save?url=https://panda843.github.io/article/1837062590.html&title=Fedora24使用笔记"><i class="fab fa-get-pocket" aria-hidden="true"></i></a></li><li><a class="icon" href="http://reddit.com/submit?url=https://panda843.github.io/article/1837062590.html&title=Fedora24使用笔记"><i class="fab fa-reddit" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://panda843.github.io/article/1837062590.html&title=Fedora24使用笔记"><i class="fab fa-stumbleupon" aria-hidden="true"></i></a></li><li><a class="icon" href="http://digg.com/submit?url=https://panda843.github.io/article/1837062590.html&title=Fedora24使用笔记"><i class="fab fa-digg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.tumblr.com/share/link?url=https://panda843.github.io/article/1837062590.html&name=Fedora24使用笔记&description=&lt;p&gt;Fedora 是一个 Linux 发行版，是一款由全球社区爱好者构建的面向日常应用的快速、稳定、强大的操作系统。它允许任何人自由地使用、修改和重发布，无论现在还是将来。它由一个强大的社群开发，这个社群的成员以自己的不懈努力，提供并维护自由、开放源码的软件和开放的标准。Fedora 项目由 Fedora 基金会管理和控制，得到了 Red Hat 的支持。&lt;/p&gt;"><i class="fab fa-tumblr" aria-hidden="true"></i></a></li><li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://panda843.github.io/article/1837062590.html&t=Fedora24使用笔记"><i class="fab fa-hacker-news" aria-hidden="true"></i></a></li></ul></div><div id="toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.</span> <span class="toc-text">更新系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0RPM-Fusion%E6%BA%90"><span class="toc-number">2.</span> <span class="toc-text">添加RPM Fusion源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0FZUG%E6%BA%90"><span class="toc-number">3.</span> <span class="toc-text">添加FZUG源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0adobe%E6%BA%90"><span class="toc-number">4.</span> <span class="toc-text">添加adobe源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85GNOME%E8%B0%83%E6%95%B4%E5%B7%A5%E5%85%B7"><span class="toc-number">5.</span> <span class="toc-text">安装GNOME调整工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85User-Themes%E6%89%A9%E5%B1%95"><span class="toc-number">6.</span> <span class="toc-text">安装User Themes扩展</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0OSX-Arc-White%E4%B8%BB%E9%A2%98"><span class="toc-number">7.</span> <span class="toc-text">添加OSX-Arc-White主题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0Mine-Yosemite%E5%9B%BE%E6%A0%87"><span class="toc-number">8.</span> <span class="toc-text">添加Mine-Yosemite图标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85shadowsocks-qt5"><span class="toc-number">9.</span> <span class="toc-text">安装shadowsocks-qt5</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85MySQL-Workbench"><span class="toc-number">10.</span> <span class="toc-text">安装MySQL Workbench</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Manaco%E5%AD%97%E4%BD%93"><span class="toc-number">11.</span> <span class="toc-text">安装Manaco字体</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%88%E6%9E%9C%E5%B1%95%E7%A4%BA"><span class="toc-number">12.</span> <span class="toc-text">效果展示</span></a></li></ol></div></span></div><div class="content index py4"><article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting"><header><h1 class="posttitle p-name" itemprop="name headline">Fedora24使用笔记</h1><div class="meta"><span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-name" itemprop="name">DuanEnJian</span></span><div class="postdate"><time datetime="2017-12-28T09:05:00.000Z" class="dt-published" itemprop="datePublished">2017-12-28</time></div><div class="article-category"><i class="fa-solid fa-archive"></i> <a class="category-link" href="/categories/operation/">运维</a></div><div class="article-tag"><i class="fa-solid fa-tag"></i> <a class="p-category" href="/tags/Linux/" rel="tag">Linux</a></div></div></header><div class="content e-content" itemprop="articleBody"><p>Fedora 是一个 Linux 发行版，是一款由全球社区爱好者构建的面向日常应用的快速、稳定、强大的操作系统。它允许任何人自由地使用、修改和重发布，无论现在还是将来。它由一个强大的社群开发，这个社群的成员以自己的不懈努力，提供并维护自由、开放源码的软件和开放的标准。Fedora 项目由 Fedora 基金会管理和控制，得到了 Red Hat 的支持。</p><span id="more"></span><h1 id="更新系统"><a href="#更新系统" class="headerlink" title="更新系统"></a>更新系统</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf update</span><br></pre></td></tr></table></figure><h1 id="添加RPM-Fusion源"><a href="#添加RPM-Fusion源" class="headerlink" title="添加RPM Fusion源"></a>添加RPM Fusion源</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-24.noarch.rpm</span><br><span class="line">dnf install --nogpgcheck http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-24.noarch.rpm </span><br></pre></td></tr></table></figure><h1 id="添加FZUG源"><a href="#添加FZUG源" class="headerlink" title="添加FZUG源"></a>添加FZUG源</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf config-manager --add-repo=http://repo.fdzh.org/FZUG/FZUG.repo</span><br></pre></td></tr></table></figure><h1 id="添加adobe源"><a href="#添加adobe源" class="headerlink" title="添加adobe源"></a>添加adobe源</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf install --nogpgcheck http://linuxdownload.adobe.com/linux/x86_64/adobe-release-x86_64-1.0-1.noarch.rpm</span><br></pre></td></tr></table></figure><h1 id="安装GNOME调整工具"><a href="#安装GNOME调整工具" class="headerlink" title="安装GNOME调整工具"></a>安装GNOME调整工具</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf install gnome-tweak-tool</span><br></pre></td></tr></table></figure><h1 id="安装User-Themes扩展"><a href="#安装User-Themes扩展" class="headerlink" title="安装User Themes扩展"></a>安装User Themes扩展</h1><p><a href="https://extensions.gnome.org/extension/19/user-themes/">https://extensions.gnome.org/extension/19/user-themes/</a></p><h1 id="添加OSX-Arc-White主题"><a href="#添加OSX-Arc-White主题" class="headerlink" title="添加OSX-Arc-White主题"></a>添加OSX-Arc-White主题</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.opendesktop.org/api/files/download/id/1470839268/OSX-Arc-White-v-1.1.tar.gz</span><br><span class="line">tar -zxvf OSX-Arc-White-v-1.1.tar.gz</span><br><span class="line">sudo <span class="built_in">mv</span> -rf OSX-Arc-White /usr/share/themes/</span><br></pre></td></tr></table></figure><h1 id="添加Mine-Yosemite图标"><a href="#添加Mine-Yosemite图标" class="headerlink" title="添加Mine-Yosemite图标"></a>添加Mine-Yosemite图标</h1><p><a href="Mine-icon-themes.tar.gz">Mine-icon-themes.tar.gz</a></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf Mine-icon-themes.tar.gz</span><br><span class="line">sudo <span class="built_in">mv</span> -rf Mine-Yosemite /usr/share/icons/</span><br></pre></td></tr></table></figure><h1 id="安装shadowsocks-qt5"><a href="#安装shadowsocks-qt5" class="headerlink" title="安装shadowsocks-qt5"></a>安装shadowsocks-qt5</h1><p>参考:<br><a href="https://github.com/shadowsocks/shadowsocks-qt5/wiki/%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97">https://github.com/shadowsocks/shadowsocks-qt5/wiki/%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97</a></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf copr <span class="built_in">enable</span> librehat/shadowsocks</span><br><span class="line">sudo dnf update</span><br><span class="line">sudo dnf install shadowsocks-qt5</span><br></pre></td></tr></table></figure><h1 id="安装MySQL-Workbench"><a href="#安装MySQL-Workbench" class="headerlink" title="安装MySQL Workbench"></a>安装MySQL Workbench</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install --nogpgcheck http://dev.mysql.com/get/mysql-community-release-fc21-6.noarch.rpm</span><br><span class="line">sudo dnf install mysql-workbench-community</span><br></pre></td></tr></table></figure><h1 id="安装Manaco字体"><a href="#安装Manaco字体" class="headerlink" title="安装Manaco字体"></a>安装Manaco字体</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/cstrap/monaco-font.git</span><br><span class="line">sudo bash monaco-font/install-font-centos.sh http://usystem.googlecode.com/files/MONACO.TTF</span><br></pre></td></tr></table></figure><h1 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h1><img src="/article/1837062590/1837062590/964398adbdfee356cc91245ecc0f2819.jpg" title="桌面效果图"> <img src="/article/1837062590/1837062590/d0986899c76c3e0c9a1db1ec3a409cbc.jpg" title="应用列表效果图"> <img src="/article/1837062590/1837062590/e2c9d0c55ef130ec72cdceb41ecbbcbf.jpg" title="文件夹效果图"></div></article><div id="footer-post-container"><div id="footer-post"><div id="nav-footer" style="display:none"><ul><li><a href="/">Home</a></li><li><a href="/archives/">Writing</a></li><li><a href="/tags/">Tags</a></li><li><a href="/about/">About</a></li></ul></div><div id="toc-footer" style="display:none"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.</span> <span class="toc-text">更新系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0RPM-Fusion%E6%BA%90"><span class="toc-number">2.</span> <span class="toc-text">添加RPM Fusion源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0FZUG%E6%BA%90"><span class="toc-number">3.</span> <span class="toc-text">添加FZUG源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0adobe%E6%BA%90"><span class="toc-number">4.</span> <span class="toc-text">添加adobe源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85GNOME%E8%B0%83%E6%95%B4%E5%B7%A5%E5%85%B7"><span class="toc-number">5.</span> <span class="toc-text">安装GNOME调整工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85User-Themes%E6%89%A9%E5%B1%95"><span class="toc-number">6.</span> <span class="toc-text">安装User Themes扩展</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0OSX-Arc-White%E4%B8%BB%E9%A2%98"><span class="toc-number">7.</span> <span class="toc-text">添加OSX-Arc-White主题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0Mine-Yosemite%E5%9B%BE%E6%A0%87"><span class="toc-number">8.</span> <span class="toc-text">添加Mine-Yosemite图标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85shadowsocks-qt5"><span class="toc-number">9.</span> <span class="toc-text">安装shadowsocks-qt5</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85MySQL-Workbench"><span class="toc-number">10.</span> <span class="toc-text">安装MySQL Workbench</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Manaco%E5%AD%97%E4%BD%93"><span class="toc-number">11.</span> <span class="toc-text">安装Manaco字体</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%88%E6%9E%9C%E5%B1%95%E7%A4%BA"><span class="toc-number">12.</span> <span class="toc-text">效果展示</span></a></li></ol></div><div id="share-footer" style="display:none"><ul><li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://panda843.github.io/article/1837062590.html"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="https://twitter.com/share?url=https://panda843.github.io/article/1837062590.html&text=Fedora24使用笔记"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://panda843.github.io/article/1837062590.html&title=Fedora24使用笔记"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://panda843.github.io/article/1837062590.html&is_video=false&description=Fedora24使用笔记"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="mailto:?subject=Fedora24使用笔记&body=Check out this article: https://panda843.github.io/article/1837062590.html"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="https://getpocket.com/save?url=https://panda843.github.io/article/1837062590.html&title=Fedora24使用笔记"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://reddit.com/submit?url=https://panda843.github.io/article/1837062590.html&title=Fedora24使用笔记"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://panda843.github.io/article/1837062590.html&title=Fedora24使用笔记"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://digg.com/submit?url=https://panda843.github.io/article/1837062590.html&title=Fedora24使用笔记"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.tumblr.com/share/link?url=https://panda843.github.io/article/1837062590.html&name=Fedora24使用笔记&description=&lt;p&gt;Fedora 是一个 Linux 发行版，是一款由全球社区爱好者构建的面向日常应用的快速、稳定、强大的操作系统。它允许任何人自由地使用、修改和重发布，无论现在还是将来。它由一个强大的社群开发，这个社群的成员以自己的不懈努力，提供并维护自由、开放源码的软件和开放的标准。Fedora 项目由 Fedora 基金会管理和控制，得到了 Red Hat 的支持。&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://panda843.github.io/article/1837062590.html&t=Fedora24使用笔记"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li></ul></div><div id="actions-footer"><a id="menu" class="icon" href="#" onclick='return $("#nav-footer").toggle(),!1'><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a><a id="toc" class="icon" href="#" onclick='return $("#toc-footer").toggle(),!1'><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a><a id="share" class="icon" href="#" onclick='return $("#share-footer").toggle(),!1'><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a><a id="top" style="display:none" class="icon" href="#" onclick='$("html, body").animate({scrollTop:0},"fast")'><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></div></div></div><footer id="footer"><div class="footer-left">Copyright &copy; 2016-2024 是潘达呀</div><div class="footer-right"><nav><ul><li><a href="/">Home</a></li><li><a href="/archives/">Writing</a></li><li><a href="/tags/">Tags</a></li><li><a href="/about/">About</a></li></ul></nav></div></footer></div><link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload='this.onload=null,this.rel="stylesheet"'><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script><script>$(function() {
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="description" content="Fedora 是一个 Linux 发行版，是一款由全球社区爱好者构建的面向日常应用的快速、稳定、强大的操作系统。它允许任何人自由地使用、修改和重发布，无论现在还是将来。它由一个强大的社群开发，这个社群的成员以自己的不懈努力，提供并维护自由、开放源码的软件和开放的标准。Fedora 项目由 Fedora 基金会管理和控制，得到了 Red Hat 的支持。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fedora24使用笔记">
+<meta property="og:url" content="https://panda843.github.io/article/1837062590.html">
+<meta property="og:site_name" content="是潘达呀">
+<meta property="og:description" content="Fedora 是一个 Linux 发行版，是一款由全球社区爱好者构建的面向日常应用的快速、稳定、强大的操作系统。它允许任何人自由地使用、修改和重发布，无论现在还是将来。它由一个强大的社群开发，这个社群的成员以自己的不懈努力，提供并维护自由、开放源码的软件和开放的标准。Fedora 项目由 Fedora 基金会管理和控制，得到了 Red Hat 的支持。">
+<meta property="og:locale">
+<meta property="og:image" content="https://panda843.github.io/article/1837062590/1837062590/964398adbdfee356cc91245ecc0f2819.jpg">
+<meta property="og:image" content="https://panda843.github.io/article/1837062590/1837062590/d0986899c76c3e0c9a1db1ec3a409cbc.jpg">
+<meta property="og:image" content="https://panda843.github.io/article/1837062590/1837062590/e2c9d0c55ef130ec72cdceb41ecbbcbf.jpg">
+<meta property="article:published_time" content="2017-12-28T09:05:00.000Z">
+<meta property="article:modified_time" content="2024-02-28T09:27:29.997Z">
+<meta property="article:author" content="是潘达呀">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://panda843.github.io/article/1837062590/1837062590/964398adbdfee356cc91245ecc0f2819.jpg">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Fedora24使用笔记</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/true" title="是潘达呀" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tags</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/article/4226450635.html"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/article/3194097614.html"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://panda843.github.io/article/1837062590.html"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://panda843.github.io/article/1837062590.html&text=Fedora24使用笔记"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://panda843.github.io/article/1837062590.html&title=Fedora24使用笔记"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://panda843.github.io/article/1837062590.html&is_video=false&description=Fedora24使用笔记"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Fedora24使用笔记&body=Check out this article: https://panda843.github.io/article/1837062590.html"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://panda843.github.io/article/1837062590.html&title=Fedora24使用笔记"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://panda843.github.io/article/1837062590.html&title=Fedora24使用笔记"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://panda843.github.io/article/1837062590.html&title=Fedora24使用笔记"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://panda843.github.io/article/1837062590.html&title=Fedora24使用笔记"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://panda843.github.io/article/1837062590.html&name=Fedora24使用笔记&description=&lt;p&gt;Fedora 是一个 Linux 发行版，是一款由全球社区爱好者构建的面向日常应用的快速、稳定、强大的操作系统。它允许任何人自由地使用、修改和重发布，无论现在还是将来。它由一个强大的社群开发，这个社群的成员以自己的不懈努力，提供并维护自由、开放源码的软件和开放的标准。Fedora 项目由 Fedora 基金会管理和控制，得到了 Red Hat 的支持。&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://panda843.github.io/article/1837062590.html&t=Fedora24使用笔记"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.</span> <span class="toc-text">更新系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0RPM-Fusion%E6%BA%90"><span class="toc-number">2.</span> <span class="toc-text">添加RPM Fusion源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0FZUG%E6%BA%90"><span class="toc-number">3.</span> <span class="toc-text">添加FZUG源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0adobe%E6%BA%90"><span class="toc-number">4.</span> <span class="toc-text">添加adobe源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85GNOME%E8%B0%83%E6%95%B4%E5%B7%A5%E5%85%B7"><span class="toc-number">5.</span> <span class="toc-text">安装GNOME调整工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85User-Themes%E6%89%A9%E5%B1%95"><span class="toc-number">6.</span> <span class="toc-text">安装User Themes扩展</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0OSX-Arc-White%E4%B8%BB%E9%A2%98"><span class="toc-number">7.</span> <span class="toc-text">添加OSX-Arc-White主题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0Mine-Yosemite%E5%9B%BE%E6%A0%87"><span class="toc-number">8.</span> <span class="toc-text">添加Mine-Yosemite图标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85shadowsocks-qt5"><span class="toc-number">9.</span> <span class="toc-text">安装shadowsocks-qt5</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85MySQL-Workbench"><span class="toc-number">10.</span> <span class="toc-text">安装MySQL Workbench</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Manaco%E5%AD%97%E4%BD%93"><span class="toc-number">11.</span> <span class="toc-text">安装Manaco字体</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%88%E6%9E%9C%E5%B1%95%E7%A4%BA"><span class="toc-number">12.</span> <span class="toc-text">效果展示</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Fedora24使用笔记
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">DuanEnJian</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2017-12-28T09:05:00.000Z" class="dt-published" itemprop="datePublished">2017-12-28</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/operation/">运维</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Linux/" rel="tag">Linux</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>Fedora 是一个 Linux 发行版，是一款由全球社区爱好者构建的面向日常应用的快速、稳定、强大的操作系统。它允许任何人自由地使用、修改和重发布，无论现在还是将来。它由一个强大的社群开发，这个社群的成员以自己的不懈努力，提供并维护自由、开放源码的软件和开放的标准。Fedora 项目由 Fedora 基金会管理和控制，得到了 Red Hat 的支持。</p>
+<span id="more"></span>
+<h1 id="更新系统"><a href="#更新系统" class="headerlink" title="更新系统"></a>更新系统</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf update</span><br></pre></td></tr></table></figure>
+<h1 id="添加RPM-Fusion源"><a href="#添加RPM-Fusion源" class="headerlink" title="添加RPM Fusion源"></a>添加RPM Fusion源</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-24.noarch.rpm</span><br><span class="line">dnf install --nogpgcheck http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-24.noarch.rpm </span><br></pre></td></tr></table></figure>
+<h1 id="添加FZUG源"><a href="#添加FZUG源" class="headerlink" title="添加FZUG源"></a>添加FZUG源</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf config-manager --add-repo=http://repo.fdzh.org/FZUG/FZUG.repo</span><br></pre></td></tr></table></figure>
+<h1 id="添加adobe源"><a href="#添加adobe源" class="headerlink" title="添加adobe源"></a>添加adobe源</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf install --nogpgcheck http://linuxdownload.adobe.com/linux/x86_64/adobe-release-x86_64-1.0-1.noarch.rpm</span><br></pre></td></tr></table></figure>
+<h1 id="安装GNOME调整工具"><a href="#安装GNOME调整工具" class="headerlink" title="安装GNOME调整工具"></a>安装GNOME调整工具</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf install gnome-tweak-tool</span><br></pre></td></tr></table></figure>
+<h1 id="安装User-Themes扩展"><a href="#安装User-Themes扩展" class="headerlink" title="安装User Themes扩展"></a>安装User Themes扩展</h1><p><a href="https://extensions.gnome.org/extension/19/user-themes/">https://extensions.gnome.org/extension/19/user-themes/</a></p>
+<h1 id="添加OSX-Arc-White主题"><a href="#添加OSX-Arc-White主题" class="headerlink" title="添加OSX-Arc-White主题"></a>添加OSX-Arc-White主题</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.opendesktop.org/api/files/download/id/1470839268/OSX-Arc-White-v-1.1.tar.gz</span><br><span class="line">tar -zxvf OSX-Arc-White-v-1.1.tar.gz</span><br><span class="line">sudo <span class="built_in">mv</span> -rf OSX-Arc-White /usr/share/themes/</span><br></pre></td></tr></table></figure>
+<h1 id="添加Mine-Yosemite图标"><a href="#添加Mine-Yosemite图标" class="headerlink" title="添加Mine-Yosemite图标"></a>添加Mine-Yosemite图标</h1><p><a href="Mine-icon-themes.tar.gz">Mine-icon-themes.tar.gz</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf Mine-icon-themes.tar.gz</span><br><span class="line">sudo <span class="built_in">mv</span> -rf Mine-Yosemite /usr/share/icons/</span><br></pre></td></tr></table></figure>
+<h1 id="安装shadowsocks-qt5"><a href="#安装shadowsocks-qt5" class="headerlink" title="安装shadowsocks-qt5"></a>安装shadowsocks-qt5</h1><p>参考:<br><a href="https://github.com/shadowsocks/shadowsocks-qt5/wiki/%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97">https://github.com/shadowsocks/shadowsocks-qt5/wiki/%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf copr <span class="built_in">enable</span> librehat/shadowsocks</span><br><span class="line">sudo dnf update</span><br><span class="line">sudo dnf install shadowsocks-qt5</span><br></pre></td></tr></table></figure>
+<h1 id="安装MySQL-Workbench"><a href="#安装MySQL-Workbench" class="headerlink" title="安装MySQL Workbench"></a>安装MySQL Workbench</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install --nogpgcheck http://dev.mysql.com/get/mysql-community-release-fc21-6.noarch.rpm</span><br><span class="line">sudo dnf install mysql-workbench-community</span><br></pre></td></tr></table></figure>
+<h1 id="安装Manaco字体"><a href="#安装Manaco字体" class="headerlink" title="安装Manaco字体"></a>安装Manaco字体</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/cstrap/monaco-font.git</span><br><span class="line">sudo bash monaco-font/install-font-centos.sh http://usystem.googlecode.com/files/MONACO.TTF</span><br></pre></td></tr></table></figure>
+<h1 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h1><img src="/article/1837062590/1837062590/964398adbdfee356cc91245ecc0f2819.jpg" class title="桌面效果图">
+<img src="/article/1837062590/1837062590/d0986899c76c3e0c9a1db1ec3a409cbc.jpg" class title="应用列表效果图">
+<img src="/article/1837062590/1837062590/e2c9d0c55ef130ec72cdceb41ecbbcbf.jpg" class title="文件夹效果图">
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/tags/">Tags</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.</span> <span class="toc-text">更新系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0RPM-Fusion%E6%BA%90"><span class="toc-number">2.</span> <span class="toc-text">添加RPM Fusion源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0FZUG%E6%BA%90"><span class="toc-number">3.</span> <span class="toc-text">添加FZUG源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0adobe%E6%BA%90"><span class="toc-number">4.</span> <span class="toc-text">添加adobe源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85GNOME%E8%B0%83%E6%95%B4%E5%B7%A5%E5%85%B7"><span class="toc-number">5.</span> <span class="toc-text">安装GNOME调整工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85User-Themes%E6%89%A9%E5%B1%95"><span class="toc-number">6.</span> <span class="toc-text">安装User Themes扩展</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0OSX-Arc-White%E4%B8%BB%E9%A2%98"><span class="toc-number">7.</span> <span class="toc-text">添加OSX-Arc-White主题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0Mine-Yosemite%E5%9B%BE%E6%A0%87"><span class="toc-number">8.</span> <span class="toc-text">添加Mine-Yosemite图标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85shadowsocks-qt5"><span class="toc-number">9.</span> <span class="toc-text">安装shadowsocks-qt5</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85MySQL-Workbench"><span class="toc-number">10.</span> <span class="toc-text">安装MySQL Workbench</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Manaco%E5%AD%97%E4%BD%93"><span class="toc-number">11.</span> <span class="toc-text">安装Manaco字体</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%88%E6%9E%9C%E5%B1%95%E7%A4%BA"><span class="toc-number">12.</span> <span class="toc-text">效果展示</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://panda843.github.io/article/1837062590.html"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://panda843.github.io/article/1837062590.html&text=Fedora24使用笔记"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://panda843.github.io/article/1837062590.html&title=Fedora24使用笔记"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://panda843.github.io/article/1837062590.html&is_video=false&description=Fedora24使用笔记"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Fedora24使用笔记&body=Check out this article: https://panda843.github.io/article/1837062590.html"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://panda843.github.io/article/1837062590.html&title=Fedora24使用笔记"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://panda843.github.io/article/1837062590.html&title=Fedora24使用笔记"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://panda843.github.io/article/1837062590.html&title=Fedora24使用笔记"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://panda843.github.io/article/1837062590.html&title=Fedora24使用笔记"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://panda843.github.io/article/1837062590.html&name=Fedora24使用笔记&description=&lt;p&gt;Fedora 是一个 Linux 发行版，是一款由全球社区爱好者构建的面向日常应用的快速、稳定、强大的操作系统。它允许任何人自由地使用、修改和重发布，无论现在还是将来。它由一个强大的社群开发，这个社群的成员以自己的不懈努力，提供并维护自由、开放源码的软件和开放的标准。Fedora 项目由 Fedora 基金会管理和控制，得到了 Red Hat 的支持。&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://panda843.github.io/article/1837062590.html&t=Fedora24使用笔记"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2024
+    是潘达呀
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tags</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
     // copy-btn HTML
     var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
     btn += '<i class="fa-regular fa-clone"></i>';
@@ -14,4 +312,21 @@
       e.trigger.setAttribute('aria-label', "Copied!");
       e.clearSelection();
     })
-  })</script><script src="/js/main.js"></script></body></html>
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

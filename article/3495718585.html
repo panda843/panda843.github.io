@@ -1,4 +1,273 @@
-<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="HandheldFriendly" content="True"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5"><meta name="referrer" content="no-referrer"><meta name="description" content="企业网站用户数越来越多,同时在线人数越来越多,最大同时在线达100万之多,由于session文件是小文件存储,设想每个用户大概2K左右数据,NFS频繁读取导致IO成为瓶颈,虽然可以更改配置以分级目录的形式保持session但还是没有达到最优设计,但如果把session放在内存中,内存存取快速,就再也不用担心海量用户的压力了!"><meta property="og:type" content="article"><meta property="og:title" content="PHP把 session存到memcache中"><meta property="og:url" content="https://panda843.github.io/article/3495718585.html"><meta property="og:site_name" content="是潘达呀"><meta property="og:description" content="企业网站用户数越来越多,同时在线人数越来越多,最大同时在线达100万之多,由于session文件是小文件存储,设想每个用户大概2K左右数据,NFS频繁读取导致IO成为瓶颈,虽然可以更改配置以分级目录的形式保持session但还是没有达到最优设计,但如果把session放在内存中,内存存取快速,就再也不用担心海量用户的压力了!"><meta property="og:locale"><meta property="article:published_time" content="2017-12-27T12:53:00.000Z"><meta property="article:modified_time" content="2024-02-28T09:27:30.058Z"><meta property="article:author" content="是潘达呀"><meta property="article:tag" content="PHP"><meta name="twitter:card" content="summary"><link rel="shortcut icon" href="/images/favicon.ico"><link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png"><title>PHP把 session存到memcache中</title><link rel="stylesheet" href="/css/style.css"><link rel="alternate" href="/true" title="是潘达呀" type="application/atom+xml"><meta name="generator" content="Hexo 7.1.1"></head><body class="max-width mx-auto px3 ltr"><div id="header-post"><a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a><a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a><a id="top-icon-tablet" href="#" aria-label="Top" onclick='$("html, body").animate({scrollTop:0},"fast")' style="display:none"><i class="fa-solid fa-chevron-up fa-lg"></i></a><span id="menu"><span id="nav"><ul><li><a href="/">Home</a></li><li><a href="/archives/">Writing</a></li><li><a href="/tags/">Tags</a></li><li><a href="/about/">About</a></li></ul></span><br><span id="actions"><ul><li><a class="icon" aria-label="Previous post" href="/article/2897789060.html"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle()' onmouseout='$("#i-prev").toggle()'></i></a></li><li><a class="icon" aria-label="Next post" href="/article/1678094766.html"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle()' onmouseout='$("#i-next").toggle()'></i></a></li><li><a class="icon" aria-label="Back to top" href="#" onclick='$("html, body").animate({scrollTop:0},"fast")'><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle()' onmouseout='$("#i-top").toggle()'></i></a></li><li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle()' onmouseout='$("#i-share").toggle()' onclick='return $("#share").toggle(),!1'></i></a></li></ul><span id="i-prev" class="info" style="display:none">Previous post</span> <span id="i-next" class="info" style="display:none">Next post</span> <span id="i-top" class="info" style="display:none">Back to top</span> <span id="i-share" class="info" style="display:none">Share post</span></span><br><div id="share" style="display:none"><ul><li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://panda843.github.io/article/3495718585.html"><i class="fab fa-facebook" aria-hidden="true"></i></a></li><li><a class="icon" href="https://twitter.com/share?url=https://panda843.github.io/article/3495718585.html&text=PHP把 session存到memcache中"><i class="fab fa-twitter" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://panda843.github.io/article/3495718585.html&title=PHP把 session存到memcache中"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li><li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://panda843.github.io/article/3495718585.html&is_video=false&description=PHP把 session存到memcache中"><i class="fab fa-pinterest" aria-hidden="true"></i></a></li><li><a class="icon" href="mailto:?subject=PHP把 session存到memcache中&body=Check out this article: https://panda843.github.io/article/3495718585.html"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a></li><li><a class="icon" href="https://getpocket.com/save?url=https://panda843.github.io/article/3495718585.html&title=PHP把 session存到memcache中"><i class="fab fa-get-pocket" aria-hidden="true"></i></a></li><li><a class="icon" href="http://reddit.com/submit?url=https://panda843.github.io/article/3495718585.html&title=PHP把 session存到memcache中"><i class="fab fa-reddit" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://panda843.github.io/article/3495718585.html&title=PHP把 session存到memcache中"><i class="fab fa-stumbleupon" aria-hidden="true"></i></a></li><li><a class="icon" href="http://digg.com/submit?url=https://panda843.github.io/article/3495718585.html&title=PHP把 session存到memcache中"><i class="fab fa-digg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.tumblr.com/share/link?url=https://panda843.github.io/article/3495718585.html&name=PHP把 session存到memcache中&description=&lt;p&gt;企业网站用户数越来越多,同时在线人数越来越多,最大同时在线达100万之多,由于session文件是小文件存储,设想每个用户大概2K左右数据,NFS频繁读取导致IO成为瓶颈,虽然可以更改配置以分级目录的形式保持session但还是没有达到最优设计,但如果把session放在内存中,内存存取快速,就再也不用担心海量用户的压力了!&lt;/p&gt;"><i class="fab fa-tumblr" aria-hidden="true"></i></a></li><li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://panda843.github.io/article/3495718585.html&t=PHP把 session存到memcache中"><i class="fab fa-hacker-news" aria-hidden="true"></i></a></li></ul></div></span></div><div class="content index py4"><article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting"><header><h1 class="posttitle p-name" itemprop="name headline">PHP把 session存到memcache中</h1><div class="meta"><span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-name" itemprop="name">DuanEnJian</span></span><div class="postdate"><time datetime="2017-12-27T12:53:00.000Z" class="dt-published" itemprop="datePublished">2017-12-27</time></div><div class="article-category"><i class="fa-solid fa-archive"></i> <a class="category-link" href="/categories/develop/">开发</a></div><div class="article-tag"><i class="fa-solid fa-tag"></i> <a class="p-category" href="/tags/PHP/" rel="tag">PHP</a></div></div></header><div class="content e-content" itemprop="articleBody"><p>企业网站用户数越来越多,同时在线人数越来越多,最大同时在线达100万之多,由于session文件是小文件存储,设想每个用户大概2K左右数据,NFS频繁读取导致IO成为瓶颈,虽然可以更改配置以分级目录的形式保持session但还是没有达到最优设计,但如果把session放在内存中,内存存取快速,就再也不用担心海量用户的压力了!</p><span id="more"></span><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">MemSession</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">static</span> <span class="variable">$handler</span>=<span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">static</span> <span class="variable">$lifetime</span>=<span class="literal">null</span>;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 初使化和开启session</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span>    Memcache    $memcache    memcache对象</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">start</span>(<span class="params">Memcache <span class="variable">$memcache</span></span>)</span>&#123;</span><br><span class="line">             <span class="comment">//将 session.save_handler 设置为 user，而不是默认的 files</span></span><br><span class="line">             <span class="comment">//session文件保存方式，这个是必须的！除非在Php.ini文件中设置了</span></span><br><span class="line">            <span class="title function_ invoke__">ini_set</span>(<span class="string">&#x27;session.save_handler&#x27;</span>, <span class="string">&#x27;user&#x27;</span>); <span class="comment">//等价于 session_module_name(&#x27;user&#x27;);</span></span><br><span class="line">            <span class="built_in">self</span>::<span class="variable">$handler</span>=<span class="variable">$memcache</span>;</span><br><span class="line">            <span class="built_in">self</span>::<span class="variable">$lifetime</span>=<span class="title function_ invoke__">ini_get</span>(<span class="string">&#x27;session.gc_maxlifetime&#x27;</span>);</span><br><span class="line">            <span class="title function_ invoke__">session_set_save_handler</span>(</span><br><span class="line">                    <span class="keyword">array</span>(<span class="keyword">__CLASS__</span>, <span class="string">&#x27;open&#x27;</span>),</span><br><span class="line">                    <span class="keyword">array</span>(<span class="keyword">__CLASS__</span>, <span class="string">&#x27;close&#x27;</span>),</span><br><span class="line">                    <span class="keyword">array</span>(<span class="keyword">__CLASS__</span>, <span class="string">&#x27;read&#x27;</span>),</span><br><span class="line">                    <span class="keyword">array</span>(<span class="keyword">__CLASS__</span>, <span class="string">&#x27;write&#x27;</span>),</span><br><span class="line">                    <span class="keyword">array</span>(<span class="keyword">__CLASS__</span>, <span class="string">&#x27;destroy&#x27;</span>),</span><br><span class="line">                    <span class="keyword">array</span>(<span class="keyword">__CLASS__</span>, <span class="string">&#x27;gc&#x27;</span>)</span><br><span class="line">                );</span><br><span class="line">            <span class="title function_ invoke__">session_start</span>();</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">open</span>(<span class="params"><span class="variable">$path</span>, <span class="variable">$name</span></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">close</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 从SESSION中读取数据</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span>    string    $PHPSESSID    session的ID</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@return</span>     mixed            返回session中对应的数据</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">read</span>(<span class="params"><span class="variable">$PHPSESSID</span></span>)</span>&#123;</span><br><span class="line">            <span class="variable">$out</span>=<span class="built_in">self</span>::<span class="variable">$handler</span>-&gt;<span class="title function_ invoke__">get</span>(<span class="built_in">self</span>::<span class="title function_ invoke__">session_key</span>(<span class="variable">$PHPSESSID</span>));</span><br><span class="line">            <span class="keyword">if</span>(<span class="variable">$out</span>===<span class="literal">false</span> || <span class="variable">$out</span> == <span class="literal">null</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="variable">$out</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         *向session中添加数据</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">write</span>(<span class="params"><span class="variable">$PHPSESSID</span>, <span class="variable">$data</span></span>)</span>&#123;</span><br><span class="line">            <span class="variable">$method</span>=<span class="variable">$data</span> ? <span class="string">&#x27;set&#x27;</span> : <span class="string">&#x27;replace&#x27;</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">self</span>::<span class="variable">$handler</span>-&gt;<span class="variable">$method</span>(<span class="built_in">self</span>::<span class="title function_ invoke__">session_key</span>(<span class="variable">$PHPSESSID</span>), <span class="variable">$data</span>, MEMCACHE_COMPRESSED, <span class="built_in">self</span>::<span class="variable">$lifetime</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">destroy</span>(<span class="params"><span class="variable">$PHPSESSID</span></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">self</span>::<span class="variable">$handler</span>-&gt;<span class="title function_ invoke__">delete</span>(<span class="built_in">self</span>::<span class="title function_ invoke__">session_key</span>(<span class="variable">$PHPSESSID</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">gc</span>(<span class="params"><span class="variable">$lifetime</span></span>)</span>&#123;</span><br><span class="line">            <span class="comment">//无需额外回收,memcache有自己的过期回收机制</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">session_key</span>(<span class="params"><span class="variable">$PHPSESSID</span></span>)</span>&#123;</span><br><span class="line">            <span class="variable">$session_key</span>=TABPREFIX.<span class="variable">$PHPSESSID</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="variable">$session_key</span>;</span><br><span class="line">        &#125;    </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//使用</span></span><br><span class="line">    <span class="variable">$mem</span>=<span class="keyword">new</span> <span class="title class_">Memcache</span>();</span><br><span class="line">    <span class="variable">$mem</span>-&gt;<span class="title function_ invoke__">connect</span>(<span class="string">&#x27;127.0.0.1&#x27;</span>, <span class="string">&#x27;11211&#x27;</span>);</span><br><span class="line">    <span class="title class_">MemSession</span>::<span class="title function_ invoke__">start</span>(<span class="variable">$mem</span>);</span><br><span class="line">    <span class="variable">$_SESSION</span>[<span class="string">&#x27;myBlog&#x27;</span>]=<span class="string">&#x27;http://www.ganktools.com&#x27;</span>;</span><br></pre></td></tr></table></figure></div></article><div id="footer-post-container"><div id="footer-post"><div id="nav-footer" style="display:none"><ul><li><a href="/">Home</a></li><li><a href="/archives/">Writing</a></li><li><a href="/tags/">Tags</a></li><li><a href="/about/">About</a></li></ul></div><div id="share-footer" style="display:none"><ul><li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://panda843.github.io/article/3495718585.html"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="https://twitter.com/share?url=https://panda843.github.io/article/3495718585.html&text=PHP把 session存到memcache中"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://panda843.github.io/article/3495718585.html&title=PHP把 session存到memcache中"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://panda843.github.io/article/3495718585.html&is_video=false&description=PHP把 session存到memcache中"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="mailto:?subject=PHP把 session存到memcache中&body=Check out this article: https://panda843.github.io/article/3495718585.html"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="https://getpocket.com/save?url=https://panda843.github.io/article/3495718585.html&title=PHP把 session存到memcache中"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://reddit.com/submit?url=https://panda843.github.io/article/3495718585.html&title=PHP把 session存到memcache中"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://panda843.github.io/article/3495718585.html&title=PHP把 session存到memcache中"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://digg.com/submit?url=https://panda843.github.io/article/3495718585.html&title=PHP把 session存到memcache中"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.tumblr.com/share/link?url=https://panda843.github.io/article/3495718585.html&name=PHP把 session存到memcache中&description=&lt;p&gt;企业网站用户数越来越多,同时在线人数越来越多,最大同时在线达100万之多,由于session文件是小文件存储,设想每个用户大概2K左右数据,NFS频繁读取导致IO成为瓶颈,虽然可以更改配置以分级目录的形式保持session但还是没有达到最优设计,但如果把session放在内存中,内存存取快速,就再也不用担心海量用户的压力了!&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://panda843.github.io/article/3495718585.html&t=PHP把 session存到memcache中"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li></ul></div><div id="actions-footer"><a id="menu" class="icon" href="#" onclick='return $("#nav-footer").toggle(),!1'><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a><a id="share" class="icon" href="#" onclick='return $("#share-footer").toggle(),!1'><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a><a id="top" style="display:none" class="icon" href="#" onclick='$("html, body").animate({scrollTop:0},"fast")'><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></div></div></div><footer id="footer"><div class="footer-left">Copyright &copy; 2016-2024 是潘达呀</div><div class="footer-right"><nav><ul><li><a href="/">Home</a></li><li><a href="/archives/">Writing</a></li><li><a href="/tags/">Tags</a></li><li><a href="/about/">About</a></li></ul></nav></div></footer></div><link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload='this.onload=null,this.rel="stylesheet"'><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script><script>$(function() {
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="description" content="企业网站用户数越来越多,同时在线人数越来越多,最大同时在线达100万之多,由于session文件是小文件存储,设想每个用户大概2K左右数据,NFS频繁读取导致IO成为瓶颈,虽然可以更改配置以分级目录的形式保持session但还是没有达到最优设计,但如果把session放在内存中,内存存取快速,就再也不用担心海量用户的压力了!">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP把 session存到memcache中">
+<meta property="og:url" content="https://panda843.github.io/article/3495718585.html">
+<meta property="og:site_name" content="是潘达呀">
+<meta property="og:description" content="企业网站用户数越来越多,同时在线人数越来越多,最大同时在线达100万之多,由于session文件是小文件存储,设想每个用户大概2K左右数据,NFS频繁读取导致IO成为瓶颈,虽然可以更改配置以分级目录的形式保持session但还是没有达到最优设计,但如果把session放在内存中,内存存取快速,就再也不用担心海量用户的压力了!">
+<meta property="og:locale">
+<meta property="article:published_time" content="2017-12-27T12:53:00.000Z">
+<meta property="article:modified_time" content="2024-02-28T09:27:30.058Z">
+<meta property="article:author" content="是潘达呀">
+<meta property="article:tag" content="PHP">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>PHP把 session存到memcache中</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/true" title="是潘达呀" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tags</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/article/2897789060.html"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/article/1678094766.html"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://panda843.github.io/article/3495718585.html"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://panda843.github.io/article/3495718585.html&text=PHP把 session存到memcache中"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://panda843.github.io/article/3495718585.html&title=PHP把 session存到memcache中"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://panda843.github.io/article/3495718585.html&is_video=false&description=PHP把 session存到memcache中"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=PHP把 session存到memcache中&body=Check out this article: https://panda843.github.io/article/3495718585.html"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://panda843.github.io/article/3495718585.html&title=PHP把 session存到memcache中"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://panda843.github.io/article/3495718585.html&title=PHP把 session存到memcache中"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://panda843.github.io/article/3495718585.html&title=PHP把 session存到memcache中"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://panda843.github.io/article/3495718585.html&title=PHP把 session存到memcache中"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://panda843.github.io/article/3495718585.html&name=PHP把 session存到memcache中&description=&lt;p&gt;企业网站用户数越来越多,同时在线人数越来越多,最大同时在线达100万之多,由于session文件是小文件存储,设想每个用户大概2K左右数据,NFS频繁读取导致IO成为瓶颈,虽然可以更改配置以分级目录的形式保持session但还是没有达到最优设计,但如果把session放在内存中,内存存取快速,就再也不用担心海量用户的压力了!&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://panda843.github.io/article/3495718585.html&t=PHP把 session存到memcache中"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        PHP把 session存到memcache中
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">DuanEnJian</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2017-12-27T12:53:00.000Z" class="dt-published" itemprop="datePublished">2017-12-27</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/develop/">开发</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/PHP/" rel="tag">PHP</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>企业网站用户数越来越多,同时在线人数越来越多,最大同时在线达100万之多,由于session文件是小文件存储,设想每个用户大概2K左右数据,NFS频繁读取导致IO成为瓶颈,虽然可以更改配置以分级目录的形式保持session但还是没有达到最优设计,但如果把session放在内存中,内存存取快速,就再也不用担心海量用户的压力了!</p>
+<span id="more"></span>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">MemSession</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">static</span> <span class="variable">$handler</span>=<span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">static</span> <span class="variable">$lifetime</span>=<span class="literal">null</span>;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 初使化和开启session</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span>    Memcache    $memcache    memcache对象</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">start</span>(<span class="params">Memcache <span class="variable">$memcache</span></span>)</span>&#123;</span><br><span class="line">             <span class="comment">//将 session.save_handler 设置为 user，而不是默认的 files</span></span><br><span class="line">             <span class="comment">//session文件保存方式，这个是必须的！除非在Php.ini文件中设置了</span></span><br><span class="line">            <span class="title function_ invoke__">ini_set</span>(<span class="string">&#x27;session.save_handler&#x27;</span>, <span class="string">&#x27;user&#x27;</span>); <span class="comment">//等价于 session_module_name(&#x27;user&#x27;);</span></span><br><span class="line">            <span class="built_in">self</span>::<span class="variable">$handler</span>=<span class="variable">$memcache</span>;</span><br><span class="line">            <span class="built_in">self</span>::<span class="variable">$lifetime</span>=<span class="title function_ invoke__">ini_get</span>(<span class="string">&#x27;session.gc_maxlifetime&#x27;</span>);</span><br><span class="line">            <span class="title function_ invoke__">session_set_save_handler</span>(</span><br><span class="line">                    <span class="keyword">array</span>(<span class="keyword">__CLASS__</span>, <span class="string">&#x27;open&#x27;</span>),</span><br><span class="line">                    <span class="keyword">array</span>(<span class="keyword">__CLASS__</span>, <span class="string">&#x27;close&#x27;</span>),</span><br><span class="line">                    <span class="keyword">array</span>(<span class="keyword">__CLASS__</span>, <span class="string">&#x27;read&#x27;</span>),</span><br><span class="line">                    <span class="keyword">array</span>(<span class="keyword">__CLASS__</span>, <span class="string">&#x27;write&#x27;</span>),</span><br><span class="line">                    <span class="keyword">array</span>(<span class="keyword">__CLASS__</span>, <span class="string">&#x27;destroy&#x27;</span>),</span><br><span class="line">                    <span class="keyword">array</span>(<span class="keyword">__CLASS__</span>, <span class="string">&#x27;gc&#x27;</span>)</span><br><span class="line">                );</span><br><span class="line">            <span class="title function_ invoke__">session_start</span>();</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">open</span>(<span class="params"><span class="variable">$path</span>, <span class="variable">$name</span></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">close</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 从SESSION中读取数据</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span>    string    $PHPSESSID    session的ID</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@return</span>     mixed            返回session中对应的数据</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">read</span>(<span class="params"><span class="variable">$PHPSESSID</span></span>)</span>&#123;</span><br><span class="line">            <span class="variable">$out</span>=<span class="built_in">self</span>::<span class="variable">$handler</span>-&gt;<span class="title function_ invoke__">get</span>(<span class="built_in">self</span>::<span class="title function_ invoke__">session_key</span>(<span class="variable">$PHPSESSID</span>));</span><br><span class="line">            <span class="keyword">if</span>(<span class="variable">$out</span>===<span class="literal">false</span> || <span class="variable">$out</span> == <span class="literal">null</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="variable">$out</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         *向session中添加数据</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">write</span>(<span class="params"><span class="variable">$PHPSESSID</span>, <span class="variable">$data</span></span>)</span>&#123;</span><br><span class="line">            <span class="variable">$method</span>=<span class="variable">$data</span> ? <span class="string">&#x27;set&#x27;</span> : <span class="string">&#x27;replace&#x27;</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">self</span>::<span class="variable">$handler</span>-&gt;<span class="variable">$method</span>(<span class="built_in">self</span>::<span class="title function_ invoke__">session_key</span>(<span class="variable">$PHPSESSID</span>), <span class="variable">$data</span>, MEMCACHE_COMPRESSED, <span class="built_in">self</span>::<span class="variable">$lifetime</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">destroy</span>(<span class="params"><span class="variable">$PHPSESSID</span></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">self</span>::<span class="variable">$handler</span>-&gt;<span class="title function_ invoke__">delete</span>(<span class="built_in">self</span>::<span class="title function_ invoke__">session_key</span>(<span class="variable">$PHPSESSID</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">gc</span>(<span class="params"><span class="variable">$lifetime</span></span>)</span>&#123;</span><br><span class="line">            <span class="comment">//无需额外回收,memcache有自己的过期回收机制</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">session_key</span>(<span class="params"><span class="variable">$PHPSESSID</span></span>)</span>&#123;</span><br><span class="line">            <span class="variable">$session_key</span>=TABPREFIX.<span class="variable">$PHPSESSID</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="variable">$session_key</span>;</span><br><span class="line">        &#125;    </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//使用</span></span><br><span class="line">    <span class="variable">$mem</span>=<span class="keyword">new</span> <span class="title class_">Memcache</span>();</span><br><span class="line">    <span class="variable">$mem</span>-&gt;<span class="title function_ invoke__">connect</span>(<span class="string">&#x27;127.0.0.1&#x27;</span>, <span class="string">&#x27;11211&#x27;</span>);</span><br><span class="line">    <span class="title class_">MemSession</span>::<span class="title function_ invoke__">start</span>(<span class="variable">$mem</span>);</span><br><span class="line">    <span class="variable">$_SESSION</span>[<span class="string">&#x27;myBlog&#x27;</span>]=<span class="string">&#x27;http://www.ganktools.com&#x27;</span>;</span><br></pre></td></tr></table></figure>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/tags/">Tags</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://panda843.github.io/article/3495718585.html"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://panda843.github.io/article/3495718585.html&text=PHP把 session存到memcache中"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://panda843.github.io/article/3495718585.html&title=PHP把 session存到memcache中"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://panda843.github.io/article/3495718585.html&is_video=false&description=PHP把 session存到memcache中"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=PHP把 session存到memcache中&body=Check out this article: https://panda843.github.io/article/3495718585.html"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://panda843.github.io/article/3495718585.html&title=PHP把 session存到memcache中"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://panda843.github.io/article/3495718585.html&title=PHP把 session存到memcache中"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://panda843.github.io/article/3495718585.html&title=PHP把 session存到memcache中"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://panda843.github.io/article/3495718585.html&title=PHP把 session存到memcache中"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://panda843.github.io/article/3495718585.html&name=PHP把 session存到memcache中&description=&lt;p&gt;企业网站用户数越来越多,同时在线人数越来越多,最大同时在线达100万之多,由于session文件是小文件存储,设想每个用户大概2K左右数据,NFS频繁读取导致IO成为瓶颈,虽然可以更改配置以分级目录的形式保持session但还是没有达到最优设计,但如果把session放在内存中,内存存取快速,就再也不用担心海量用户的压力了!&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://panda843.github.io/article/3495718585.html&t=PHP把 session存到memcache中"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2024
+    是潘达呀
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tags</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
     // copy-btn HTML
     var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
     btn += '<i class="fa-regular fa-clone"></i>';
@@ -14,4 +283,21 @@
       e.trigger.setAttribute('aria-label', "Copied!");
       e.clearSelection();
     })
-  })</script><script src="/js/main.js"></script></body></html>
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

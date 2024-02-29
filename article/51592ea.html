@@ -1,4 +1,274 @@
-<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="HandheldFriendly" content="True"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5"><meta name="referrer" content="no-referrer"><meta name="description" content="vimawesome插件网站   12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959"><meta property="og:type" content="article"><meta property="og:title" content="VIM配置备份"><meta property="og:url" content="https://panda843.github.io/article/51592ea.html"><meta property="og:site_name" content="是潘达呀"><meta property="og:description" content="vimawesome插件网站   12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959"><meta property="og:locale"><meta property="og:image" content="https://panda843.github.io/images/image.png"><meta property="article:published_time" content="2024-02-29T08:01:00.000Z"><meta property="article:modified_time" content="2024-02-29T08:11:00.757Z"><meta property="article:author" content="是潘达呀"><meta property="article:tag" content="vim"><meta property="article:tag" content="vim-plug"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://panda843.github.io/images/image.png"><link rel="shortcut icon" href="/images/favicon.ico"><link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png"><title>VIM配置备份</title><link rel="stylesheet" href="/css/style.css"><link rel="alternate" href="/true" title="是潘达呀" type="application/atom+xml"><meta name="generator" content="Hexo 7.1.1"></head><body class="max-width mx-auto px3 ltr"><div id="header-post"><a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a><a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a><a id="top-icon-tablet" href="#" aria-label="Top" onclick='$("html, body").animate({scrollTop:0},"fast")' style="display:none"><i class="fa-solid fa-chevron-up fa-lg"></i></a><span id="menu"><span id="nav"><ul><li><a href="/">Home</a></li><li><a href="/archives/">Writing</a></li><li><a href="/tags/">Tags</a></li><li><a href="/about/">About</a></li></ul></span><br><span id="actions"><ul><li><a class="icon" aria-label="Previous post" href="/article/97505dc7.html"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle()' onmouseout='$("#i-prev").toggle()'></i></a></li><li><a class="icon" aria-label="Next post" href="/article/ecb6ef2b.html"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle()' onmouseout='$("#i-next").toggle()'></i></a></li><li><a class="icon" aria-label="Back to top" href="#" onclick='$("html, body").animate({scrollTop:0},"fast")'><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle()' onmouseout='$("#i-top").toggle()'></i></a></li><li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle()' onmouseout='$("#i-share").toggle()' onclick='return $("#share").toggle(),!1'></i></a></li></ul><span id="i-prev" class="info" style="display:none">Previous post</span> <span id="i-next" class="info" style="display:none">Next post</span> <span id="i-top" class="info" style="display:none">Back to top</span> <span id="i-share" class="info" style="display:none">Share post</span></span><br><div id="share" style="display:none"><ul><li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://panda843.github.io/article/51592ea.html"><i class="fab fa-facebook" aria-hidden="true"></i></a></li><li><a class="icon" href="https://twitter.com/share?url=https://panda843.github.io/article/51592ea.html&text=VIM配置备份"><i class="fab fa-twitter" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://panda843.github.io/article/51592ea.html&title=VIM配置备份"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li><li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://panda843.github.io/article/51592ea.html&is_video=false&description=VIM配置备份"><i class="fab fa-pinterest" aria-hidden="true"></i></a></li><li><a class="icon" href="mailto:?subject=VIM配置备份&body=Check out this article: https://panda843.github.io/article/51592ea.html"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a></li><li><a class="icon" href="https://getpocket.com/save?url=https://panda843.github.io/article/51592ea.html&title=VIM配置备份"><i class="fab fa-get-pocket" aria-hidden="true"></i></a></li><li><a class="icon" href="http://reddit.com/submit?url=https://panda843.github.io/article/51592ea.html&title=VIM配置备份"><i class="fab fa-reddit" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://panda843.github.io/article/51592ea.html&title=VIM配置备份"><i class="fab fa-stumbleupon" aria-hidden="true"></i></a></li><li><a class="icon" href="http://digg.com/submit?url=https://panda843.github.io/article/51592ea.html&title=VIM配置备份"><i class="fab fa-digg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.tumblr.com/share/link?url=https://panda843.github.io/article/51592ea.html&name=VIM配置备份&description="><i class="fab fa-tumblr" aria-hidden="true"></i></a></li><li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://panda843.github.io/article/51592ea.html&t=VIM配置备份"><i class="fab fa-hacker-news" aria-hidden="true"></i></a></li></ul></div></span></div><div class="content index py4"><article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting"><header><h1 class="posttitle p-name" itemprop="name headline">VIM配置备份</h1><div class="meta"><span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-name" itemprop="name">是潘达呀</span></span><div class="postdate"><time datetime="2024-02-29T08:01:00.000Z" class="dt-published" itemprop="datePublished">2024-02-29</time></div><div class="article-tag"><i class="fa-solid fa-tag"></i> <a class="p-category" href="/tags/vim/" rel="tag">vim</a>, <a class="p-category" href="/tags/vim-plug/" rel="tag">vim-plug</a></div></div></header><div class="content e-content" itemprop="articleBody"><blockquote><p><a href="https://vimawesome.com/">vimawesome插件网站</a></p></blockquote><p><img src="/images/image.png" alt="vim"></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br></pre></td><td class="code"><pre><span class="line">&quot; vim-plug https://github.com/junegunn/vim-plug</span><br><span class="line">&quot; PlugInstall [name ...] [#threads]	安装插件</span><br><span class="line">&quot; PlugUpdate [name ...] [#threads]	安装或更新插件</span><br><span class="line">&quot; PlugClean[!]	删除未使用的目录（爆炸版将清除而不提示）</span><br><span class="line">&quot; PlugUpgrade	升级vim-plug本身</span><br><span class="line">&quot; PlugStatus	检查插件的状态</span><br><span class="line">&quot; PlugDiff	检查先前更新和挂起更改的更改</span><br><span class="line">&quot; PlugSnapshot[!] [output path]	生成用于还原插件的当前快照的脚本</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">call plug#begin(&#x27;~/.vim/plugged&#x27;)</span><br><span class="line"></span><br><span class="line">&quot; 中文文档</span><br><span class="line">Plug &#x27;yianwillis/vimcdoc&#x27;</span><br><span class="line"></span><br><span class="line">&quot; 自启动页面</span><br><span class="line">Plug &#x27;mhinz/vim-startify&#x27;</span><br><span class="line"></span><br><span class="line">&quot; 解决中文输入问题 mac only</span><br><span class="line">Plug &#x27;ybian/smartim&#x27;</span><br><span class="line"></span><br><span class="line">&quot; Vim solarized 主题插件</span><br><span class="line">Plug &#x27;altercation/vim-colors-solarized&#x27;</span><br><span class="line"></span><br><span class="line">&quot; Nerd Tree</span><br><span class="line">&quot; Plug &#x27;preservim/nerdtree&#x27;</span><br><span class="line">&quot; Git 工具</span><br><span class="line">Plug &#x27;tpope/vim-fugitive&#x27;</span><br><span class="line">&quot; Vim 状态行</span><br><span class="line">Plug &#x27;vim-airline/vim-airline&#x27;</span><br><span class="line">&quot; Vim 状态行主题</span><br><span class="line">Plug &#x27;vim-airline/vim-airline-themes&#x27;</span><br><span class="line">&quot; Vim 注释</span><br><span class="line">&quot; gcc     注释当前行（普通模式）</span><br><span class="line">&quot; gc      可视模式下，注释当前选中的部分</span><br><span class="line">&quot; gcu     撤销上一次注释的部分，可以是一行也可以是多行</span><br><span class="line">&quot; gcgc    撤销注释当前行和邻近的上下两行</span><br><span class="line">Plug &#x27;tpope/vim-commentary&#x27;</span><br><span class="line">&quot; 显示和控制 Git 变更</span><br><span class="line">Plug &#x27;airblade/vim-gitgutter&#x27;</span><br><span class="line">&quot; git 命令集成 ariline 显示分支也需要这个插件</span><br><span class="line">Plug &#x27;tpope/vim-fugitive&#x27;</span><br><span class="line">&quot; 代码提纲</span><br><span class="line">Plug &#x27;majutsushi/tagbar&#x27;</span><br><span class="line">&quot; vim 8 新特性 绵羊游戏</span><br><span class="line">Plug &#x27;vim/killersheep&#x27;</span><br><span class="line">&quot; 支持自定义文本对象</span><br><span class="line">Plug &#x27;kana/vim-textobj-user&#x27;</span><br><span class="line">&quot; 增加行文本对象: l   dal yal cil</span><br><span class="line">Plug &#x27;kana/vim-textobj-line&#x27;</span><br><span class="line">&quot; 增加文件文本对象: e   dae yae cie</span><br><span class="line">Plug &#x27;kana/vim-textobj-entire&#x27;</span><br><span class="line">&quot; 增加缩进文本对象: i   dai yai cii - 相同缩进属于同一块</span><br><span class="line">Plug &#x27;kana/vim-textobj-indent&#x27;</span><br><span class="line">&quot; 视图模式下可伸缩选中部分，用于快速选中某些块</span><br><span class="line">&quot; v-增加选中范围 V-减少选中范围</span><br><span class="line">Plug &#x27;terryma/vim-expand-region&#x27;</span><br><span class="line">&quot; 多光标编辑</span><br><span class="line">Plug &#x27;mg979/vim-visual-multi&#x27;, &#123;&#x27;branch&#x27;: &#x27;master&#x27;&#125;</span><br><span class="line">&quot; 有键位冲突，暂时停用 多光标编辑 next: &lt;C-n&gt; skip: &lt;C-x&gt; prev: &lt;C-p&gt; select all: &lt;A-n&gt;</span><br><span class="line">&quot; Plug &#x27;terryma/vim-multiple-cursors&#x27;</span><br><span class="line">&quot; 快速跳转 ,,&lt;h,k,j,l&gt; 开启</span><br><span class="line">Plug &#x27;easymotion/vim-easymotion&#x27;</span><br><span class="line">&quot; 模糊查找</span><br><span class="line">Plug &#x27;Yggdroot/LeaderF&#x27;, &#123; &#x27;do&#x27;: &#x27;:LeaderfInstallCExtension&#x27; &#125;</span><br><span class="line">&quot; 可视化显示缩放级别</span><br><span class="line">Plug &#x27;nathanaelkane/vim-indent-guides&#x27;</span><br><span class="line">&quot; 对齐代码的虚线，写Python尤其需要</span><br><span class="line">Plug &#x27;Yggdroot/indentLine&#x27;</span><br><span class="line">&quot; 用不同颜色高亮单词或选中块</span><br><span class="line">Plug &#x27;Yggdroot/vim-mark&#x27;</span><br><span class="line">&quot; 彩虹括号</span><br><span class="line">Plug &#x27;frazrepo/vim-rainbow&#x27;</span><br><span class="line">&quot; 智能添加/删除括号</span><br><span class="line">Plug &#x27;jiangmiao/auto-pairs&#x27;</span><br><span class="line">&quot; 自动补全单引号，双引号等</span><br><span class="line">Plug &#x27;Raimondi/delimitMate&#x27;</span><br><span class="line">&quot; 自动补全html/xml标签</span><br><span class="line">Plug &#x27;docunext/closetag.vim&#x27;, &#123; &#x27;for&#x27;: [&#x27;html&#x27;, &#x27;xml&#x27;] &#125;</span><br><span class="line">&quot; 高亮行末空格(标红), 也可以一键去除文件中所有行行尾空格</span><br><span class="line">Plug &#x27;bronson/vim-trailing-whitespace&#x27;</span><br><span class="line">&quot; 自动完成</span><br><span class="line">Plug &#x27;ycm-core/YouCompleteMe&#x27;</span><br><span class="line">&quot; Emmet 自动补全</span><br><span class="line">Plug &#x27;mattn/emmet-vim&#x27;</span><br><span class="line">&quot; marks 标记</span><br><span class="line">Plug &#x27;kshenoy/vim-signature&#x27;</span><br><span class="line">&quot; buffers tree 用 leaderf 也行</span><br><span class="line">Plug &#x27;jlanzarotta/bufexplorer&#x27;</span><br><span class="line">&quot; Go语言插件</span><br><span class="line">Plug &#x27;fatih/vim-go&#x27;</span><br><span class="line">call plug#end()</span><br><span class="line"></span><br><span class="line">&quot; vim-airline 顶部标签页</span><br><span class="line">let g:airline#extensions#tabline#enabled = 1</span><br><span class="line">&quot; vim-airlien 主题</span><br><span class="line">let g:airline_theme=&quot;bubblegum&quot;</span><br><span class="line">&quot; vim-airline 支持powerline字体</span><br><span class="line">let g:airline_powerline_fonts = 1</span><br><span class="line">let g:airline_left_alt_sep = &#x27;❯&#x27;</span><br><span class="line">let g:airline_right_alt_sep = &#x27;❮&#x27;</span><br><span class="line">&quot; 隐藏文件类型</span><br><span class="line">let g:airline_section_x = &#x27;&#x27;</span><br><span class="line">let g:airline_section_y = &#x27;&#x27;  &quot; airline#section#create_left([&#x27;filetype&#x27;])</span><br><span class="line">let g:airline_skip_empty_sections = 1</span><br><span class="line"></span><br><span class="line">&quot; Vim solarized 主题配置</span><br><span class="line">syntax enable</span><br><span class="line">set background=dark</span><br><span class="line">set t_Co=256</span><br><span class="line">&quot; colorscheme solarized</span><br><span class="line"></span><br><span class="line">&quot; Nerd Tree 配置</span><br><span class="line">&quot; autocmd vimenter * NERDTree</span><br><span class="line"></span><br><span class="line">&quot; vim-commentary 注释配置</span><br><span class="line">autocmd FileType python,shell,coffee set commentstring=#\ %s</span><br><span class="line">autocmd FileType java,c,cpp set commentstring=//\ %s</span><br><span class="line">autocmd FileType php        setlocal omnifunc=phpactor#Complete</span><br><span class="line">&quot; 复制时不能选择行号</span><br><span class="line">set mouse=a</span><br><span class="line">&quot; 显示行号</span><br><span class="line">set number</span><br><span class="line">&quot; 设置tab为4个空格</span><br><span class="line">set ts=4</span><br><span class="line">set expandtab</span><br><span class="line">%retab!</span><br><span class="line">&quot; 设置delete只能删除当前行的问题</span><br><span class="line">set backspace=indent,eol,start</span><br><span class="line">&quot; 显示设置为UTF-8</span><br><span class="line">set termencoding=utf-8</span><br><span class="line">&quot; 高亮显示匹配括号</span><br><span class="line">set showmatch</span><br><span class="line">&quot; 将文件格式转换为unix格式</span><br><span class="line">set ff=unix</span><br><span class="line">&quot; 允许折叠</span><br><span class="line">set foldenable</span><br><span class="line">&quot; 高亮显示当前行</span><br><span class="line">set cursorline</span><br><span class="line">hi CursorLine   cterm=NONE ctermbg=black guibg=NONE guifg=NONE</span><br><span class="line">&quot; 帮助系统设置为中文</span><br><span class="line">set helplang=cn</span><br><span class="line">&quot; 总是显示状态行</span><br><span class="line">set laststatus=2</span><br><span class="line">&quot; 检索时高亮显示匹配项</span><br><span class="line">set hls</span><br><span class="line">&quot; 取消VI一致</span><br><span class="line">set nocompatible</span><br><span class="line">&quot; 搜索模式忽略大小写</span><br><span class="line">set ignorecase</span><br><span class="line">&quot; 如果搜索模式包含大写字符，不使用&#x27;ignorecase&#x27;选项。只有在输入搜索模式并且打开&#x27;ignorecase&#x27;选项时才会使用 </span><br><span class="line">set smartcase</span><br><span class="line">&quot; 行移动</span><br><span class="line">nnoremap ∆ :m .+1&lt;CR&gt;==</span><br><span class="line">nnoremap ˚ :m .-2&lt;CR&gt;==</span><br><span class="line">inoremap ∆ &lt;Esc&gt;:m .+1&lt;CR&gt;==gi</span><br><span class="line">inoremap ˚ &lt;Esc&gt;:m .-2&lt;CR&gt;==gi</span><br><span class="line">vnoremap ∆ :m &#x27;&gt;+1&lt;CR&gt;gv=gv</span><br><span class="line">vnoremap ˚ :m &#x27;&lt;-2&lt;CR&gt;gv=gv</span><br></pre></td></tr></table></figure></div></article><div id="footer-post-container"><div id="footer-post"><div id="nav-footer" style="display:none"><ul><li><a href="/">Home</a></li><li><a href="/archives/">Writing</a></li><li><a href="/tags/">Tags</a></li><li><a href="/about/">About</a></li></ul></div><div id="share-footer" style="display:none"><ul><li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://panda843.github.io/article/51592ea.html"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="https://twitter.com/share?url=https://panda843.github.io/article/51592ea.html&text=VIM配置备份"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://panda843.github.io/article/51592ea.html&title=VIM配置备份"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://panda843.github.io/article/51592ea.html&is_video=false&description=VIM配置备份"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="mailto:?subject=VIM配置备份&body=Check out this article: https://panda843.github.io/article/51592ea.html"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="https://getpocket.com/save?url=https://panda843.github.io/article/51592ea.html&title=VIM配置备份"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://reddit.com/submit?url=https://panda843.github.io/article/51592ea.html&title=VIM配置备份"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://panda843.github.io/article/51592ea.html&title=VIM配置备份"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://digg.com/submit?url=https://panda843.github.io/article/51592ea.html&title=VIM配置备份"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.tumblr.com/share/link?url=https://panda843.github.io/article/51592ea.html&name=VIM配置备份&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://panda843.github.io/article/51592ea.html&t=VIM配置备份"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li></ul></div><div id="actions-footer"><a id="menu" class="icon" href="#" onclick='return $("#nav-footer").toggle(),!1'><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a><a id="share" class="icon" href="#" onclick='return $("#share-footer").toggle(),!1'><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a><a id="top" style="display:none" class="icon" href="#" onclick='$("html, body").animate({scrollTop:0},"fast")'><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></div></div></div><footer id="footer"><div class="footer-left">Copyright &copy; 2016-2024 是潘达呀</div><div class="footer-right"><nav><ul><li><a href="/">Home</a></li><li><a href="/archives/">Writing</a></li><li><a href="/tags/">Tags</a></li><li><a href="/about/">About</a></li></ul></nav></div></footer></div><link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload='this.onload=null,this.rel="stylesheet"'><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script><script>$(function() {
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="description" content="vimawesome插件网站   12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VIM配置备份">
+<meta property="og:url" content="https://panda843.github.io/article/51592ea.html">
+<meta property="og:site_name" content="是潘达呀">
+<meta property="og:description" content="vimawesome插件网站   12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959">
+<meta property="og:locale">
+<meta property="og:image" content="https://panda843.github.io/images/image.png">
+<meta property="article:published_time" content="2024-02-29T08:01:00.000Z">
+<meta property="article:modified_time" content="2024-02-29T08:11:00.757Z">
+<meta property="article:author" content="是潘达呀">
+<meta property="article:tag" content="vim">
+<meta property="article:tag" content="vim-plug">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://panda843.github.io/images/image.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>VIM配置备份</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/true" title="是潘达呀" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tags</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/article/97505dc7.html"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/article/ecb6ef2b.html"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://panda843.github.io/article/51592ea.html"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://panda843.github.io/article/51592ea.html&text=VIM配置备份"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://panda843.github.io/article/51592ea.html&title=VIM配置备份"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://panda843.github.io/article/51592ea.html&is_video=false&description=VIM配置备份"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=VIM配置备份&body=Check out this article: https://panda843.github.io/article/51592ea.html"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://panda843.github.io/article/51592ea.html&title=VIM配置备份"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://panda843.github.io/article/51592ea.html&title=VIM配置备份"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://panda843.github.io/article/51592ea.html&title=VIM配置备份"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://panda843.github.io/article/51592ea.html&title=VIM配置备份"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://panda843.github.io/article/51592ea.html&name=VIM配置备份&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://panda843.github.io/article/51592ea.html&t=VIM配置备份"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        VIM配置备份
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">是潘达呀</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-02-29T08:01:00.000Z" class="dt-published" itemprop="datePublished">2024-02-29</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/vim/" rel="tag">vim</a>, <a class="p-category" href="/tags/vim-plug/" rel="tag">vim-plug</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <blockquote>
+<p><a href="https://vimawesome.com/">vimawesome插件网站</a></p>
+</blockquote>
+<p><img src="/images/image.png" alt="vim"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br></pre></td><td class="code"><pre><span class="line">&quot; vim-plug https://github.com/junegunn/vim-plug</span><br><span class="line">&quot; PlugInstall [name ...] [#threads]	安装插件</span><br><span class="line">&quot; PlugUpdate [name ...] [#threads]	安装或更新插件</span><br><span class="line">&quot; PlugClean[!]	删除未使用的目录（爆炸版将清除而不提示）</span><br><span class="line">&quot; PlugUpgrade	升级vim-plug本身</span><br><span class="line">&quot; PlugStatus	检查插件的状态</span><br><span class="line">&quot; PlugDiff	检查先前更新和挂起更改的更改</span><br><span class="line">&quot; PlugSnapshot[!] [output path]	生成用于还原插件的当前快照的脚本</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">call plug#begin(&#x27;~/.vim/plugged&#x27;)</span><br><span class="line"></span><br><span class="line">&quot; 中文文档</span><br><span class="line">Plug &#x27;yianwillis/vimcdoc&#x27;</span><br><span class="line"></span><br><span class="line">&quot; 自启动页面</span><br><span class="line">Plug &#x27;mhinz/vim-startify&#x27;</span><br><span class="line"></span><br><span class="line">&quot; 解决中文输入问题 mac only</span><br><span class="line">Plug &#x27;ybian/smartim&#x27;</span><br><span class="line"></span><br><span class="line">&quot; Vim solarized 主题插件</span><br><span class="line">Plug &#x27;altercation/vim-colors-solarized&#x27;</span><br><span class="line"></span><br><span class="line">&quot; Nerd Tree</span><br><span class="line">&quot; Plug &#x27;preservim/nerdtree&#x27;</span><br><span class="line">&quot; Git 工具</span><br><span class="line">Plug &#x27;tpope/vim-fugitive&#x27;</span><br><span class="line">&quot; Vim 状态行</span><br><span class="line">Plug &#x27;vim-airline/vim-airline&#x27;</span><br><span class="line">&quot; Vim 状态行主题</span><br><span class="line">Plug &#x27;vim-airline/vim-airline-themes&#x27;</span><br><span class="line">&quot; Vim 注释</span><br><span class="line">&quot; gcc     注释当前行（普通模式）</span><br><span class="line">&quot; gc      可视模式下，注释当前选中的部分</span><br><span class="line">&quot; gcu     撤销上一次注释的部分，可以是一行也可以是多行</span><br><span class="line">&quot; gcgc    撤销注释当前行和邻近的上下两行</span><br><span class="line">Plug &#x27;tpope/vim-commentary&#x27;</span><br><span class="line">&quot; 显示和控制 Git 变更</span><br><span class="line">Plug &#x27;airblade/vim-gitgutter&#x27;</span><br><span class="line">&quot; git 命令集成 ariline 显示分支也需要这个插件</span><br><span class="line">Plug &#x27;tpope/vim-fugitive&#x27;</span><br><span class="line">&quot; 代码提纲</span><br><span class="line">Plug &#x27;majutsushi/tagbar&#x27;</span><br><span class="line">&quot; vim 8 新特性 绵羊游戏</span><br><span class="line">Plug &#x27;vim/killersheep&#x27;</span><br><span class="line">&quot; 支持自定义文本对象</span><br><span class="line">Plug &#x27;kana/vim-textobj-user&#x27;</span><br><span class="line">&quot; 增加行文本对象: l   dal yal cil</span><br><span class="line">Plug &#x27;kana/vim-textobj-line&#x27;</span><br><span class="line">&quot; 增加文件文本对象: e   dae yae cie</span><br><span class="line">Plug &#x27;kana/vim-textobj-entire&#x27;</span><br><span class="line">&quot; 增加缩进文本对象: i   dai yai cii - 相同缩进属于同一块</span><br><span class="line">Plug &#x27;kana/vim-textobj-indent&#x27;</span><br><span class="line">&quot; 视图模式下可伸缩选中部分，用于快速选中某些块</span><br><span class="line">&quot; v-增加选中范围 V-减少选中范围</span><br><span class="line">Plug &#x27;terryma/vim-expand-region&#x27;</span><br><span class="line">&quot; 多光标编辑</span><br><span class="line">Plug &#x27;mg979/vim-visual-multi&#x27;, &#123;&#x27;branch&#x27;: &#x27;master&#x27;&#125;</span><br><span class="line">&quot; 有键位冲突，暂时停用 多光标编辑 next: &lt;C-n&gt; skip: &lt;C-x&gt; prev: &lt;C-p&gt; select all: &lt;A-n&gt;</span><br><span class="line">&quot; Plug &#x27;terryma/vim-multiple-cursors&#x27;</span><br><span class="line">&quot; 快速跳转 ,,&lt;h,k,j,l&gt; 开启</span><br><span class="line">Plug &#x27;easymotion/vim-easymotion&#x27;</span><br><span class="line">&quot; 模糊查找</span><br><span class="line">Plug &#x27;Yggdroot/LeaderF&#x27;, &#123; &#x27;do&#x27;: &#x27;:LeaderfInstallCExtension&#x27; &#125;</span><br><span class="line">&quot; 可视化显示缩放级别</span><br><span class="line">Plug &#x27;nathanaelkane/vim-indent-guides&#x27;</span><br><span class="line">&quot; 对齐代码的虚线，写Python尤其需要</span><br><span class="line">Plug &#x27;Yggdroot/indentLine&#x27;</span><br><span class="line">&quot; 用不同颜色高亮单词或选中块</span><br><span class="line">Plug &#x27;Yggdroot/vim-mark&#x27;</span><br><span class="line">&quot; 彩虹括号</span><br><span class="line">Plug &#x27;frazrepo/vim-rainbow&#x27;</span><br><span class="line">&quot; 智能添加/删除括号</span><br><span class="line">Plug &#x27;jiangmiao/auto-pairs&#x27;</span><br><span class="line">&quot; 自动补全单引号，双引号等</span><br><span class="line">Plug &#x27;Raimondi/delimitMate&#x27;</span><br><span class="line">&quot; 自动补全html/xml标签</span><br><span class="line">Plug &#x27;docunext/closetag.vim&#x27;, &#123; &#x27;for&#x27;: [&#x27;html&#x27;, &#x27;xml&#x27;] &#125;</span><br><span class="line">&quot; 高亮行末空格(标红), 也可以一键去除文件中所有行行尾空格</span><br><span class="line">Plug &#x27;bronson/vim-trailing-whitespace&#x27;</span><br><span class="line">&quot; 自动完成</span><br><span class="line">Plug &#x27;ycm-core/YouCompleteMe&#x27;</span><br><span class="line">&quot; Emmet 自动补全</span><br><span class="line">Plug &#x27;mattn/emmet-vim&#x27;</span><br><span class="line">&quot; marks 标记</span><br><span class="line">Plug &#x27;kshenoy/vim-signature&#x27;</span><br><span class="line">&quot; buffers tree 用 leaderf 也行</span><br><span class="line">Plug &#x27;jlanzarotta/bufexplorer&#x27;</span><br><span class="line">&quot; Go语言插件</span><br><span class="line">Plug &#x27;fatih/vim-go&#x27;</span><br><span class="line">call plug#end()</span><br><span class="line"></span><br><span class="line">&quot; vim-airline 顶部标签页</span><br><span class="line">let g:airline#extensions#tabline#enabled = 1</span><br><span class="line">&quot; vim-airlien 主题</span><br><span class="line">let g:airline_theme=&quot;bubblegum&quot;</span><br><span class="line">&quot; vim-airline 支持powerline字体</span><br><span class="line">let g:airline_powerline_fonts = 1</span><br><span class="line">let g:airline_left_alt_sep = &#x27;❯&#x27;</span><br><span class="line">let g:airline_right_alt_sep = &#x27;❮&#x27;</span><br><span class="line">&quot; 隐藏文件类型</span><br><span class="line">let g:airline_section_x = &#x27;&#x27;</span><br><span class="line">let g:airline_section_y = &#x27;&#x27;  &quot; airline#section#create_left([&#x27;filetype&#x27;])</span><br><span class="line">let g:airline_skip_empty_sections = 1</span><br><span class="line"></span><br><span class="line">&quot; Vim solarized 主题配置</span><br><span class="line">syntax enable</span><br><span class="line">set background=dark</span><br><span class="line">set t_Co=256</span><br><span class="line">&quot; colorscheme solarized</span><br><span class="line"></span><br><span class="line">&quot; Nerd Tree 配置</span><br><span class="line">&quot; autocmd vimenter * NERDTree</span><br><span class="line"></span><br><span class="line">&quot; vim-commentary 注释配置</span><br><span class="line">autocmd FileType python,shell,coffee set commentstring=#\ %s</span><br><span class="line">autocmd FileType java,c,cpp set commentstring=//\ %s</span><br><span class="line">autocmd FileType php        setlocal omnifunc=phpactor#Complete</span><br><span class="line">&quot; 复制时不能选择行号</span><br><span class="line">set mouse=a</span><br><span class="line">&quot; 显示行号</span><br><span class="line">set number</span><br><span class="line">&quot; 设置tab为4个空格</span><br><span class="line">set ts=4</span><br><span class="line">set expandtab</span><br><span class="line">%retab!</span><br><span class="line">&quot; 设置delete只能删除当前行的问题</span><br><span class="line">set backspace=indent,eol,start</span><br><span class="line">&quot; 显示设置为UTF-8</span><br><span class="line">set termencoding=utf-8</span><br><span class="line">&quot; 高亮显示匹配括号</span><br><span class="line">set showmatch</span><br><span class="line">&quot; 将文件格式转换为unix格式</span><br><span class="line">set ff=unix</span><br><span class="line">&quot; 允许折叠</span><br><span class="line">set foldenable</span><br><span class="line">&quot; 高亮显示当前行</span><br><span class="line">set cursorline</span><br><span class="line">hi CursorLine   cterm=NONE ctermbg=black guibg=NONE guifg=NONE</span><br><span class="line">&quot; 帮助系统设置为中文</span><br><span class="line">set helplang=cn</span><br><span class="line">&quot; 总是显示状态行</span><br><span class="line">set laststatus=2</span><br><span class="line">&quot; 检索时高亮显示匹配项</span><br><span class="line">set hls</span><br><span class="line">&quot; 取消VI一致</span><br><span class="line">set nocompatible</span><br><span class="line">&quot; 搜索模式忽略大小写</span><br><span class="line">set ignorecase</span><br><span class="line">&quot; 如果搜索模式包含大写字符，不使用&#x27;ignorecase&#x27;选项。只有在输入搜索模式并且打开&#x27;ignorecase&#x27;选项时才会使用 </span><br><span class="line">set smartcase</span><br><span class="line">&quot; 行移动</span><br><span class="line">nnoremap ∆ :m .+1&lt;CR&gt;==</span><br><span class="line">nnoremap ˚ :m .-2&lt;CR&gt;==</span><br><span class="line">inoremap ∆ &lt;Esc&gt;:m .+1&lt;CR&gt;==gi</span><br><span class="line">inoremap ˚ &lt;Esc&gt;:m .-2&lt;CR&gt;==gi</span><br><span class="line">vnoremap ∆ :m &#x27;&gt;+1&lt;CR&gt;gv=gv</span><br><span class="line">vnoremap ˚ :m &#x27;&lt;-2&lt;CR&gt;gv=gv</span><br></pre></td></tr></table></figure>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/tags/">Tags</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://panda843.github.io/article/51592ea.html"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://panda843.github.io/article/51592ea.html&text=VIM配置备份"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://panda843.github.io/article/51592ea.html&title=VIM配置备份"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://panda843.github.io/article/51592ea.html&is_video=false&description=VIM配置备份"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=VIM配置备份&body=Check out this article: https://panda843.github.io/article/51592ea.html"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://panda843.github.io/article/51592ea.html&title=VIM配置备份"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://panda843.github.io/article/51592ea.html&title=VIM配置备份"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://panda843.github.io/article/51592ea.html&title=VIM配置备份"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://panda843.github.io/article/51592ea.html&title=VIM配置备份"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://panda843.github.io/article/51592ea.html&name=VIM配置备份&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://panda843.github.io/article/51592ea.html&t=VIM配置备份"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2024
+    是潘达呀
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tags</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
     // copy-btn HTML
     var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
     btn += '<i class="fa-regular fa-clone"></i>';
@@ -14,4 +284,21 @@
       e.trigger.setAttribute('aria-label', "Copied!");
       e.clearSelection();
     })
-  })</script><script src="/js/main.js"></script></body></html>
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
