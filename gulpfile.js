@@ -3,6 +3,10 @@ var minifycss = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
 var htmlmin = require('gulp-htmlmin');
 var htmlclean = require('gulp-htmlclean');
+var imagemin = require('gulp-imagemin');
+var imageminMozjpeg = require('imagemin-mozjpeg');
+var imageminPngquant = require('imagemin-pngquant');
+
 // 压缩 public 目录 css
 gulp.task('minify-css', function() {
     return gulp.src('./public/**/*.css')
@@ -34,9 +38,14 @@ gulp.task('minify-js', function(done) {
         .pipe(gulp.dest('./public'));
         done();
 });
-// 执行 gulp 命令时执行的任务
-
+//压缩图片
+gulp.task('minify-images', function(done) {
+    gulp.src('./public/**/*.{png,jpg,gif,jpeg}')
+        .pipe(imagemin({
+            progressive: true,
+            use: [imageminMozjpeg({quality: 80}), imageminPngquant({ quality: [75,80] })]
+        }))
+        .pipe(gulp.dest('./public'));
+});
 //gulp4
-gulp.task('default', gulp.series('minify-html','minify-css','minify-js', function(done) {
-    done();
-}));
+gulp.task('default', gulp.series('minify-html','minify-css','minify-js','minify-images'));

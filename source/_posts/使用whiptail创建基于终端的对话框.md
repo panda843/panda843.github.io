@@ -19,7 +19,7 @@ date: 2024-02-29 16:35:00
 
 ![upload successful](/images/whiptail_demo5.png)
 
-![upload successful](/images/whptail_demo6.png)
+![upload successful](/images/whiptail_demo6.png)
 
 > 当你写一个交互式shell脚本，你可以使用这样的对话框来接受用户的输入。whiptail可以在shell脚本中创建基于终端的对话框，消息框的过程，类似于Zenity或xdialog GUI脚本代码。whiptail预先安装在所有的Linux发布版本中。
 
