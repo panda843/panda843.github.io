@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://panda843.github.io/article/a8120869.html</loc>
+    
+    <lastmod>2024-03-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://panda843.github.io/article/ccc56124.html</loc>
     
     <lastmod>2024-03-01</lastmod>
@@ -524,7 +533,7 @@
   </url>
   
   <url>
-    <loc>https://panda843.github.io/article/3259372363.html</loc>
+    <loc>https://panda843.github.io/article/3739381465.html</loc>
     
     <lastmod>2024-02-28</lastmod>
     
@@ -533,7 +542,7 @@
   </url>
   
   <url>
-    <loc>https://panda843.github.io/article/3739381465.html</loc>
+    <loc>https://panda843.github.io/article/3259372363.html</loc>
     
     <lastmod>2024-02-28</lastmod>
     
@@ -838,6 +847,13 @@
   
   <url>
     <loc>https://panda843.github.io/tags/qemu/</loc>
+    <lastmod>2024-03-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://panda843.github.io/tags/fofa/</loc>
     <lastmod>2024-03-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
