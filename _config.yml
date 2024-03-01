@@ -121,3 +121,11 @@ baidusitemap:
 sitemap:
     path: sitemap.xml
 google_site_verification: KLBDo8oHfQZC--5hVC7ioniWl2JfIndodrklBAJvMo4
+
+lazyload :
+  enable : true
+  onlypost : false
+  loadingImg : /images/loading.gif
+  isSPA : false
+  preloadRatio : 3
+
