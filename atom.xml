@@ -6,7 +6,7 @@
   <link href="https://panda843.github.io/atom.xml" rel="self"/>
   
   <link href="https://panda843.github.io/"/>
-  <updated>2024-02-29T10:52:55.372Z</updated>
+  <updated>2024-03-01T07:59:15.790Z</updated>
   <id>https://panda843.github.io/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在x86架构下构建arm64镜像</title>
+    <link href="https://panda843.github.io/article/ccc56124.html"/>
+    <id>https://panda843.github.io/article/ccc56124.html</id>
+    <published>2024-03-01T07:49:00.000Z</published>
+    <updated>2024-03-01T07:59:15.790Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote><p>工作中需要再CI&#x2F;CD机器上构建arm64的镜像，但CI&#x2F;CD机器又是X86的机器，记录一下如何实现，基于qemu</p></blockquote><h2 id="下载qemu镜像"><a href="#下载qemu镜像" class="headerlink" title="下载qemu镜像"></a>下载qemu镜像</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">分别用于向内核的binfmt_misc注册可执行文件，以及用于arm64指令翻译为x86指令</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">docker pull multiarch/qemu-user-static:register</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">docker pull multiarch/qemu-user-static:x86_64-aarch64</span></span><br></pre></td></tr></table></figure><h2 id="运行register镜像"><a href="#运行register镜像" class="headerlink" title="运行register镜像"></a>运行register镜像</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 向内核的binfmt_misc进行注册：</span><br><span class="line">$ docker run --rm --privileged multiarch/qemu-user-static:register --reset</span><br></pre></td></tr></table></figure><h2 id="编写Dockerfile"><a href="#编写Dockerfile" class="headerlink" title="编写Dockerfile"></a>编写Dockerfile</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">FROM multiarch/qemu-user-static:x86_64-aarch64 as qemu</span><br><span class="line"></span><br><span class="line">FROM centos:centos7</span><br><span class="line"></span><br><span class="line">COPY --from=qemu /usr/bin/qemu-aarch64-static /usr/bin</span><br><span class="line"></span><br><span class="line"># 你的构建命令。。。。。。</span><br></pre></td></tr></table></figure><h2 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 执行构建</span><br><span class="line">$ docker build -t xxx-imgage:0.0.1-arm64 .</span><br><span class="line"># 然后，你可以检查一下该镜像的架构：</span><br><span class="line">$ docker inspect xxx-imgage:0.0.1-arm64</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="docker" scheme="https://panda843.github.io/tags/docker/"/>
+    
+    <category term="qemu" scheme="https://panda843.github.io/tags/qemu/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>golang开启CGO_ENABLE=1 交叉汇编问题</title>
+    <link href="https://panda843.github.io/article/eba3ae6.html"/>
+    <id>https://panda843.github.io/article/eba3ae6.html</id>
+    <published>2024-03-01T07:40:00.000Z</published>
+    <updated>2024-03-01T07:47:50.733Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote><p>支持国产适配麒麟v10，需要arm架构的程序，每次手动编译太麻烦。没有用到cgo的程序交叉编译很容易，但是使用到cgo的程序交叉编译很困难。</p></blockquote><h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>使用goreleaser工具自动发布，命令：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CGO_ENABLED=1 CC=aarch64-linux-gnu-gcc CXX=aarch64-linux-gnu-g++ AR=aarch64-linux-gnu-ar go build -ldflags=&quot;-w -s&quot;</span><br></pre></td></tr></table></figure><h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><p>1、安装aarch64-linux-gnu-gcc、aarch64-linux-gnu-g++</p><p>使用阿里云centos7 的yum源，安装 yum install gcc-c++-aarch64-linux-gnu.x86_64  -y</p><p>2、安装依赖，yum groupinstall ‘Development Tools’ -y</p><p>3、编译报错</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># runtime/cgo</span><br><span class="line">_cgo_export.c:3:20: fatal error: stdlib.h: No such file or directory</span><br><span class="line"> #include &lt;stdlib.h&gt;</span><br><span class="line">                    ^</span><br><span class="line">compilation terminated.</span><br></pre></td></tr></table></figure><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>4、经过各种查资料发现网上没有明确的方法，排查后解决办法如下：</p><p>执行命令aarch64-linux-gnu-gcc -print-sysroot，显示目标库目录</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ aarch64-linux-gnu-gcc -print-sysroot</span><br><span class="line">/usr/aarch64-linux-gnu/sys-root</span><br></pre></td></tr></table></figure><p>5、进入此目录发现是空目录，排查后是缺少依赖库文件。在<a href="https://releases.linaro.org/components/toolchain/binaries/latest-7/aarch64-linux-gnu/">网站下载</a></p><p><img src="/images/loading.gif" data-original="/images/golang_cgo_lib_demo.png" alt="upload successful"><br>6、下载上述选中文件，并解压到-print-sysroot目录即可，再次编译通过。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="golang" scheme="https://panda843.github.io/tags/golang/"/>
+    
+  </entry>
   
   <entry>
     <title>使用whiptail创建基于终端的对话框</title>
