@@ -40,7 +40,7 @@ gulp.task('minify-js', function(done) {
 });
 //压缩图片
 gulp.task('minify-images', function(done) {
-    gulp.src('./public/**/*.{png,jpg,gif,jpeg}')
+    gulp.src(['./public/**/*.{png,jpg,gif,jpeg}','!./public/**/mysql-lt.png'])
         .pipe(imagemin({
             progressive: true,
             use: [imageminMozjpeg({quality: 90}), imageminPngquant({ quality: [80,90] })]
